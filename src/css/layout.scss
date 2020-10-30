@@ -1,0 +1,92 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    .header-logo {
+        display: flex;
+    }
+}
+
+.header-buttons  {
+    display: flex;
+    align-items: center;
+}
+
+.top, .first, .second {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+ }
+ 
+ .top {
+     flex-direction: column-reverse;
+     flex-wrap: nowrap;
+
+     img {
+        min-width: 225px;
+    }
+ }
+
+.first, .second {
+    img {
+        min-width: 250px;;
+    }
+}
+
+.item {
+    flex-grow: 1;
+    padding-top: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.top-item:nth-child(-n + 2) {
+    display: none;
+}
+
+
+@media (min-width: 700px) {
+    .top, .first, .second {
+        display: flex;
+    }
+
+    .top {
+        flex-direction: row-reverse;
+    }
+
+    .top-item, .item {
+        flex-basis: calc(33% - 1rem);
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+
+    .top-item {
+        max-width: calc(33% - 1rem);
+        
+    }
+}
+
+@media (min-width: 1280px) {
+    .platform-title {
+        display: block;
+        align-self: center;
+        flex-basis: 60%;
+        padding-left: 1rem;
+    }
+
+    .item {
+        flex-basis: unset;
+    }
+
+    .top-item:nth-child(-n + 2) {
+        display: block;
+    }
+}
+
+@media (min-width: 1500px) {
+    
+}

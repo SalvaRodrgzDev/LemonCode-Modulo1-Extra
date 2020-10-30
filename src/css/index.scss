@@ -5,37 +5,19 @@ body {
     margin: 1rem;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+.header-buttons div {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
 
-    .header-logo {
-        display: flex;
-    }
-}
-.header-buttons  {
-    display: flex;
-    align-items: center;
-
-    div {
-        padding: 10px 20px;
-        border-radius: 10px;
-
-        &:hover {
-            background-color: white;
-            color: #141414;
-        }
+    &:hover {
+        background-color: white;
+        color: #141414;
     }
 }
 
-.top {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.top .top-item:nth-child(-n + 2) {
-    display: none;
+#top-text:before {
+    content: '3';
 }
 
 .platform-title {
@@ -44,18 +26,11 @@ header {
 
 .section-title {
     margin-top: 1.5rem;
-}
-
-img {
-    width: 100%;
-    height: auto;
+    font-size: 2rem;
 }
 
 @media (min-width: 1280px) {
-    .platform-title {
-        display: block;
-        align-self: center;
-        flex-basis: 60%;
-        padding-left: 1rem;
+    #top-text:before {
+        content: '5';
     }
 }
