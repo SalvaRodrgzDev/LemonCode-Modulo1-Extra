@@ -5,6 +5,11 @@ header {
 
     .header-logo {
         display: flex;
+        flex-basis: 40%;
+
+        > img {
+            max-width: 180px;
+        }
     }
 }
 
@@ -13,7 +18,7 @@ header {
     align-items: center;
 }
 
-.top, .first, .second {
+.top {
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem 0;
@@ -35,8 +40,8 @@ header {
 }
 
 .item {
-    flex-grow: 1;
     padding-top: 1rem;
+    margin: .2rem;
 }
 
 img {
@@ -50,23 +55,40 @@ img {
 
 
 @media (min-width: 700px) {
-    .top, .first, .second {
-        display: flex;
-    }
-
     .top {
+        display: flex;
         flex-direction: row-reverse;
     }
 
-    .top-item, .item {
+    .top-item {
         flex-basis: calc(33% - 1rem);
         padding-right: .5rem;
         padding-left: .5rem;
+        max-width: calc(33% - 1rem);
     }
 
-    .top-item {
-        max-width: calc(33% - 1rem);
-        
+    .first, .second {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 880px) {
+    .first, .second {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1120px) {
+
+    .first, .second {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        .item:nth-last-child(-n + 2) {
+            grid-column: span 2;
+        }
     }
 }
 
@@ -78,15 +100,24 @@ img {
         padding-left: 1rem;
     }
 
-    .item {
-        flex-basis: unset;
-    }
-
     .top-item:nth-child(-n + 2) {
         display: block;
     }
-}
+    .first, .second {
+        display: flex;
+        align-items: center;
 
-@media (min-width: 1500px) {
-    
+        .item {
+            flex-shrink: 2;
+            transition: flex-shrink .2s linear;
+
+            &:hover {
+                flex-shrink: 1;
+            }
+        }
+
+        img {
+            min-width: unset;;
+        }
+    }
 }
